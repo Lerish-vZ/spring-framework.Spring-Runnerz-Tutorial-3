@@ -26,5 +26,9 @@ public class Run {
     public Duration gerDuration(){
         return Duration.between(startedOn, completedOn);
     }
+
+    public Integer getAvgPace(){
+        return Math.toIntExact(gerDuration().toMinutes()/miles);
+    }
 }
 
