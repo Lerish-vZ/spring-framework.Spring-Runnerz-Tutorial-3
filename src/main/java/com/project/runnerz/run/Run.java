@@ -92,6 +92,16 @@ public class Run {
         return Objects.hash(id, title, startedOn, completedOn, miles, location);
     }
 
-    
+    @Override
+    public String toString() {
+        return "Run{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", startedOn=" + startedOn +
+                ", completedOn=" + completedOn +
+                ", miles=" + miles +
+                ", location=" + location +
+                '}';
+    }
 }
 
