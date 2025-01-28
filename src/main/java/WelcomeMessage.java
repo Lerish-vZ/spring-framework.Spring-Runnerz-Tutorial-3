@@ -1,5 +1,3 @@
-package com.project.runnerz.foo.bar;
-
 import org.springframework.stereotype.Component;
 
 @Component
