@@ -1,6 +1,7 @@
 package com.project.runnerz.run;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Run {
     private Integer id;
@@ -78,5 +79,19 @@ public class Run {
     public void setLocation(Location location) {
         this.location = location;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Run run = (Run) o;
+        return Objects.equals(id, run.id) && Objects.equals(title, run.title) && Objects.equals(startedOn, run.startedOn) && Objects.equals(completedOn, run.completedOn) && Objects.equals(miles, run.miles) && Objects.equals(location, run.location);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, startedOn, completedOn, miles, location);
+    }
+
+    
 }
 
