@@ -1,3 +1,5 @@
+package com.project.runnerz;
+
 import org.springframework.stereotype.Component;
 
 @Component
