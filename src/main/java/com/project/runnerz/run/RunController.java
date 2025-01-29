@@ -23,6 +23,6 @@ public class RunController {
 
     @GetMapping("/1")
     Run findById(){
-        return runRepository.findById(1).get();
+        return runRepository.findById(1);
     }
 }
