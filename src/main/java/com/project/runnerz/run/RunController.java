@@ -36,6 +36,9 @@ public class RunController {
     }
 
     //POST
+    void create(Run run) {
+        runRepository.create(run);
+    }
 
     //PUT
 
