@@ -29,6 +29,13 @@ public class RunRepository {
         runs.add(run);
     }
 
+    void update(Run run, Integer id) {
+        Optional<Run> existingRun = findById(id);
+        if (existingRun.isPresent()) {
+            runs.set(runs.indexOf(existingRun.get()), run);
+        }
+    }
+
     @PostConstruct
     private void init() {
         runs.add(new Run(1,
