@@ -22,5 +22,9 @@ public class RunRepository {
         this.jdbcClient = jdbcClient;
     }
 
-
+    public List<Run> findAll() {
+        return jdbcClient.sql("select * from run")
+                .query(Run.class)
+                .list();
+    }
 }
