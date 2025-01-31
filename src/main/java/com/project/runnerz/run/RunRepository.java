@@ -19,10 +19,10 @@ public class RunRepository {
     }
 
     Optional<Run> findById(Integer id) {
-       return runs.stream()
+       return Optional.of(runs.stream()
                .filter(run -> run.id().equals(id))
                .findFirst()
-               .get();
+               .get());
     }
 
     void create(Run run) {
