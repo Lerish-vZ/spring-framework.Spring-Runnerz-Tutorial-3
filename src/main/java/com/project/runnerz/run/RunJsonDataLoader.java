@@ -18,6 +18,7 @@ public class RunJsonDataLoader implements CommandLineRunner {
 
     public RunJsonDataLoader(RunRepository runRepository, ObjectMapper objectMapper) {
         this.runRepository = runRepository;
+        this.objectMapper = objectMapper;
     }
 
     @Override
