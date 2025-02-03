@@ -60,5 +60,5 @@ public class RunRepository {
         Assert.state(updated==1, "Failed to delete run " + id);
     }
 
-    p
+    public int count() { return jdbcClient.sql("select * from run").query().listOfRows().size(); }
 }
