@@ -12,7 +12,7 @@ import java.io.InputStream;
 
 public class RunJsonDataLoader implements CommandLineRunner {
 
-    private static final Logger logger = LoggerFactory.getLogger(RunJsonDataLoader.class);
+    private static final Logger log = LoggerFactory.getLogger(RunJsonDataLoader.class);
     private final RunRepository runRepository;
     private final ObjectMapper objectMapper;
 
