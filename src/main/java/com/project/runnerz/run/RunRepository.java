@@ -34,4 +34,16 @@ public class RunRepository {
                 .query(Run.class)
                 .optional();
     }
+
+    public void create(Run run) {
+        var updated = jdbcClient.sql("INSERT INTO Run(id,title,started_on,completed_on,miles,location) values(?,?,?,?,?,?)")
+                .params(List.of(run.id(), run.title(), run.startedOn(), run.completedOn(), run.miles(), run.location().toString()))
+                .update();
+    }
+
+    public void update(Run run, Integer id) {
+        var updated = jdbcClient.sql("update run set title = ?, started_on = ?, completed_on = ?, miles = ?, location = ? where id = ?")
+                .params(List.of(run.title(), run.startedOn(), run.completedOn(), run.miles(), run.location().toString(), id))
+                .update();
+    }
 }
