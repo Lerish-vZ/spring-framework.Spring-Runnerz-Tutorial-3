@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS Run (
-    id INT NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     title varchar(250) NOT NULL,
     started_on timestamp NOT NULL,
     completed_on timestamp NOT NULL,
