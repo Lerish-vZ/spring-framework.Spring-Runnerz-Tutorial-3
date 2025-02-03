@@ -41,7 +41,7 @@ public class RunRepository {
                 .params(List.of(run.id(), run.title(), run.startedOn(), run.completedOn(), run.miles(), run.location().toString()))
                 .update();
 
-        Assert.state(updated==1, "Failed to create run " + run.title());
+        Assert.state(updated==1, "Failed to create run " + run.title()); //make sure only one line was affected
     }
 
     public void update(Run run, Integer id) {
