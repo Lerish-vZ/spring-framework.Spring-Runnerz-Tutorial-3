@@ -65,4 +65,11 @@ public class RunRepository {
     public void saveAll(List<Run> runs) {
         runs.stream().forEach(this::create);
     }
+
+    public List<Run> findByLocation(String location) {
+        return jdbcClient.sql("select * from run where location = :location")
+                .param("location", location)
+                .query(Run.class)
+                .list();
+    }
 }
