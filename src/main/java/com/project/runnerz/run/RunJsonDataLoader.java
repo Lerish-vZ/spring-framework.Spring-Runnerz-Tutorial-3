@@ -7,7 +7,6 @@ import org.springframework.asm.TypeReference;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -15,21 +14,21 @@ import java.io.InputStream;
 public class RunJsonDataLoader implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(RunJsonDataLoader.class);
-    private final RunRepository runRepository;
+    private final JdbcClientRunRepository jdbcClientRunRepository;
     private final ObjectMapper objectMapper;
 
-    public RunJsonDataLoader(RunRepository runRepository, ObjectMapper objectMapper) {
-        this.runRepository = runRepository;
+    public RunJsonDataLoader(JdbcClientRunRepository jdbcClientRunRepository, ObjectMapper objectMapper) {
+        this.jdbcClientRunRepository = jdbcClientRunRepository;
         this.objectMapper = objectMapper;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        if(runRepository.count() == 0){
+        if(jdbcClientRunRepository.count() == 0){
             try(InputStream inputStream = TypeReference.class.getResourceAsStream("/data/runs.json")){
                 Runs allRuns = objectMapper.readValue(inputStream, Runs.class);
                 log.info("Reading {} runs from JSON data and saving it to a database.", allRuns.runs().size());
-                runRepository.saveAll(allRuns.runs());
+                jdbcClientRunRepository.saveAll(allRuns.runs());
             } catch (IOException e){
                 throw new RuntimeException("Failed to read JSON data", e);
             }
