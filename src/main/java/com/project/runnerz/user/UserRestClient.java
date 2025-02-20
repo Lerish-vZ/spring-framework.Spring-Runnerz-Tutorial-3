@@ -1,7 +1,10 @@
 package com.project.runnerz.user;
 
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
+
+import java.util.List;
 
 @Component
 public class UserRestClient {
@@ -12,4 +15,13 @@ public class UserRestClient {
                 .baseUrl("https://jsonplaceholder.typicode.com/")
                 .build();
     }
+
+    public List<User> findAll() {
+        return restClient.get()
+                .uri("/users")
+                .retrieve()
+                .body(new ParameterizedTypeReference<>() {});
+    }
+
+    
 }
