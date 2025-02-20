@@ -23,5 +23,10 @@ public class UserRestClient {
                 .body(new ParameterizedTypeReference<>() {});
     }
 
-    
+    public User findById(Integer id) {
+        return restClient.get()
+                .uri("/users/{id}", id)
+                .retrieve()
+                .body(User.class);
+    }
 }
