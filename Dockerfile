@@ -2,7 +2,7 @@
 FROM maven:3.8.5-openjdk-17
 
 WORKDIR /runnerz
-COPY . .
+COPY target/runnerz.jar runnerz.jar
 RUN mvn clean install
 
 CMD mvn spring-boot:run
