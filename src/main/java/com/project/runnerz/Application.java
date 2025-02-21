@@ -32,7 +32,7 @@ public class Application {
 	}
 
 	@Bean
-	CommandLineRunner runner(UserRestClient client) {
+	CommandLineRunner runner(UserHttpClient client) {
 		return args -> {
 			List<User> users = client.findAll();
 			System.out.println(users);
