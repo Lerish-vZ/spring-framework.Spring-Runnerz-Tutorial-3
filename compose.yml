@@ -1,9 +1,26 @@
+version: '3.8'
+
 services:
-  postgres:
-    image: 'postgres:latest'
+  db:
+    image: postgres:latest
     environment:
-      - 'POSTGRES_DB=runnerz'
-      - 'POSTGRES_PASSWORD=c7660GmPostgres'
-      - 'POSTGRES_USER=postgres'
+      POSTGRES_PASSWORD: c7660GmPostgres
+      POSTGRES_DB: runnerz
+    networks:
+      - spring-network
     ports:
-      - '5432:5432'
+      - "5432:5432"
+
+  spring-app:
+    image: spring-boot-image
+    build: .
+    networks:
+      - spring-network
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+networks:
+  spring-network:
+    driver: bridge
