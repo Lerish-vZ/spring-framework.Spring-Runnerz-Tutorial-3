@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,7 +31,8 @@ class InMemoryRunRepositoryTest {
     }
 
     @Test
-    void shouldFindAllRuns(){
-        assertEquals(2, repository.findAll().size());
+    void shouldFindAllRuns() {
+        List<Run> runs = repository.findAll();
+        assertEquals(2, runs.size());
     }
 }
