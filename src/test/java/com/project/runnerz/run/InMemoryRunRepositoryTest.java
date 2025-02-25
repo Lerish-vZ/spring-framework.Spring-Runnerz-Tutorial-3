@@ -1,6 +1,7 @@
 package com.project.runnerz.run;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -28,5 +29,8 @@ class InMemoryRunRepositoryTest {
                 Location.INDOOR, null));
     }
 
-
+    @Test
+    void shouldFindAllRuns(){
+        assertEquals(2, repository.findAll().size());
+    }
 }
