@@ -35,7 +35,7 @@ class InMemoryRunRepository  { //implements RunRepository
                 run.startedOn(),
                 run.completedOn(),
                 run.miles(),
-                run.location());
+                run.location(), null);
 
         runs.add(newRun);
     }
@@ -76,14 +76,16 @@ class InMemoryRunRepository  { //implements RunRepository
                 LocalDateTime.now(),
                 LocalDateTime.now().plus(30, ChronoUnit.MINUTES),
                 3,
-                Location.INDOOR));
+                Location.INDOOR,
+                null));
 
         runs.add(new Run(2,
                 "Wednesday Evening Run",
                 LocalDateTime.now(),
                 LocalDateTime.now().plus(60, ChronoUnit.MINUTES),
                 6,
-                Location.INDOOR));
+                Location.INDOOR,
+                null));
     }
 
 
