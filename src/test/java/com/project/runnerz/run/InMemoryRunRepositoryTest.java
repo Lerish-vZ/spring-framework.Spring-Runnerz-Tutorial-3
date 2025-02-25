@@ -33,6 +33,6 @@ class InMemoryRunRepositoryTest {
     @Test
     void shouldFindAllRuns() {
         List<Run> runs = repository.findAll();
-        assertEquals(2, runs.size());
+        assertEquals(2, runs.size(), "Should find 2 runs");
     }
 }
